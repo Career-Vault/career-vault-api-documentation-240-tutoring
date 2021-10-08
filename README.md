@@ -1,14 +1,18 @@
-# career-vault-api-documentation
-Career Vault's Jobs API documentation
-## Authentication
-All requests to the API are authenticated by providing your API key. The API key should be provided as an HTTP header named Api-Token.
-> :warning: **Remember to keep your API key secret. Do not share it and take care not to expose it publicly in client-side code.
+# career-vault-api-documentation-240-tutoring
+Career Vault's school districts API documentation
 
 ## URL Parameters
 Parameter | Description
 ------------ | -------------
 page | A cursor for use in pagination. Returns the n-th chunk of perPage objects.
-perPage | Return up to this number of jobs per response. Must be an integer between 1 and 500 (otherwise, it will default to 100). Defaults to 100.
+perPage | Returns up to this number of jobs per response. Must be an integer between 1 and 500 (otherwise, it will default to 100). Defaults to 100.
+search | Returns jobs where JobTitle includes this string.
+zipCode | Returns jobs where the ZipCode matches.
+city | Returns jobs where the City matches.
+district | Returns jobs where District matches.
+state | Returns jobs where State matches.
+coordinates | Sets the center of a circular area where jobs are shown from.
+radius | Sets the radius of the circle around coordinates. Default is 25 miles. `coordinates` must not be null.
 
 
 ## GET: List Jobs
@@ -19,49 +23,60 @@ perPage | Return up to this number of jobs per response. Must be an integer betw
 ### JSON Response
 ```
 {
-  "meta": {
+  "pagination": {
     "page": 1,
-    "perPage": 100,
-    "pageCount": 112,
-    "uniqueCompaniesCount": 1725,
-    "totalNumberOfJobs": 8392,
-    "newJobsCount": 0
+    "perPage": 25,
+    "pageCount": 360,
+    "totalNumberOfPages": 360,
+    "totalCount": 8996,
+    "uniqueCompaniesCount": 90,
+    "totalNumberOfJobs": 8996,
+    "newJobsCount": 25
   },
-  "jobs": [
+  "data": [
     {
-      "JobID": 951238,
-      "JobTitle": "Tech Talent Acquisition Specialist",
-      "Location": "Remote - EMEA ",
-      "Url": "https://jobs.lever.co/aircall/2f53b33c-b382-4cf8-b3d7-94be2ec6c184",
-      "DatePosted": "2021-04-14T15:06:43.000Z",
-      "Description": "<div class=\"section page-centered\"><div>Aircall is on a mission to revolutionize the business phone industry!</div><div><br></div><div>We exist to empower every professional to have richer conversations. We provide an entirely cloud-based voice solution, that integrates seamlessly with popular productivity and helpdesk tools that workplaces are already using. We have raised more than $100 Million since 2015, and we care about our growing base of 6000+ customers.</div><div><br></div><div>Behind our product are the amazing teams driving it, split between Paris, New York, Sydney, Madrid, and remote locations.</div><div><br></div><div>Aircall is looking for a Tech Talent Acquisition Specialist to join our passionate and high performing Talent Team. </div><div><br></div><div>Sitting within the Global People Team and reporting to our Tech Talent Acquisition Manager, </div><div>you will be responsible for various hiring needs in a hyper-growth context (we are recruiting 260 new Aircallees this year!!!)</div><div><br></div><div>You will be in charge of many projects within the Talent team or with our different partners.</div><div><br></div><div>Working along with very committed hiring managers at Aircall and a team of outstanding TAs, you will bring your creativity to experiment with new approaches to unleash your full potential and thrive with us. You will have the opportunity to work on a team that has a continuous improvement philosophy and in an international environment. </div><div><br></div><div><b>***This position is open to candidates willing to relocate to Paris, Madrid and depending on experience can also be fully remote from France, Spain, Portugal, Netherland or the UK***</b></div></div><div class=\"section page-centered\"><div><h3>Your mission @ Aircall</h3><ul class=\"posting-requirements plain-list\"><ul><li>Lead the full cycle recruitment process for your Tech business partners with the support of your manager and team members</li><li>Help build and improve communication around candidate experience &amp; hiring processes</li><li>Plan and participate in events to improve employer branding, communication, and strategy around hiring and retention</li><li>Bring your experience and share it with Talent team members</li><li>Each Talent Acquisition Team member can lead or participate in various projects: events, jobsite, editorial committee, compensation &amp; benefits strategy, ATS processes, hiring process, newcomers onboarding, interviewers training, external partner relationships, ... &amp; many more to come! </li></ul></ul></div></div><div class=\"section page-centered\"><div><h3>A little more about you:</h3><ul class=\"posting-requirements plain-list\"><ul><li>At least 2 years experience hiring in Tech with a passion for building high-performing teams </li><li>Experience in finding solutions to tough problems, and the ability to invest energy in the success of your work</li><li>Ability to meet deadlines and contribute to the structuring of our hiring processes </li><li>Ability to give and receive constructive feedback while remaining positive </li><li>Eager to learn and ready to collaborate with various teams, hiring managers, and coworkers</li></ul></ul></div></div><div class=\"section page-centered\"><div><h3>Our hiring process:</h3><ul class=\"posting-requirements plain-list\"><ul><li>Call with a Talent Acquisition Specialist </li><li>Zoom interview with our Talent Acquisition Manager </li><li>Use case with a Business Partner and another team member</li><li>Zoom Interview with our Chief People Officer </li></ul></ul></div></div><div class=\"section page-centered\"><div>We know that success comes from smart work and deserves to be recognized and rewarded</div><div><br></div><div>We value people who are bold, ambitious, collaborative and customer-centric. Even better, the ones who know how to work hard &amp; have fun at the same time. We’re a tribe of highly driven people, with a great sense of human connection and a clear focus. </div><div><br></div><div>If you love a good challenge, enjoy solving meaningful problems, and want to be a part of one of the fastest-growing B2B startups, then Aircall is the company you are looking for!</div><div>Aircall offers a unique work environment and the chance to collaborate with diverse teammates across continents. We'll provide freedom and tools to allow you to thrive at your best, and foster an environment you can do it in.</div><div><br></div><div><b>Why join us?</b></div><div><br></div><div>???? Key moment to join Aircall in term of growth and opportunities</div><div>????‍♀️ Our people matter, work-life balance is important at Aircall</div><div>???? Fast-learning environment, entrepreneurial and strong team spirit</div><div>???? 35+ Nationalities: cosmopolite &amp; multi-cultural mindset</div><div>???? Competitive salary package &amp; benefits (health coverage, lunch, commute, sports)</div><div><br></div><div><u><i>DE&amp;I Statement: </i></u></div><div><i>At Aircall, we believe diversity, equity and inclusion, irrespective of origins, identity, background and orientations, are </i><b><i>core to our Aircall journey.</i></b><i> </i></div><div><i>We promote active inclusion to foster a</i><b><i> strong sense of belonging</i></b><i> which is one of our main strengths as a business. We strive to assemble diverse people that can </i><b><i>enrich and learn from each other</i></b><i>. We pledge to make sure everyone not only has a seat at the table but is valued at the table -- providing </i><b><i>equal opportunities </i></b><i>to develop and thrive.  </i></div><div><i>We will constantly challenge ourselves to make sure that we live up to our ambitions around diversity, equity and inclusion, and </i><b><i>keep this conversation </i></b><i>open because we realize that we have work to do and much to learn.</i></div></div>",
-      "CompanyName": "Aircall",
-      "Logo": "https://lever-client-logos.s3.amazonaws.com/76909e1c-c61e-4134-a0d5-c22ff4bfb2dd-1555509307718.png",
-      "Website": "http://aircall.io"
+      "JobID": 26417,
+      "JobTitle": "2021/22 Special Education Teacher, Elementary",
+      "Location": "Mason Elementary",
+      "Url": "https://www.applitrack.com/leander/onlineapp/_application.aspx?posJobCodes=6224",
+      "DatePosted": "2021-10-05T16:24:22.000Z",
+      "Description": "<span class=\"normal\"><div style=\"text-align: center;\"> <center> <center> <center style=\"text-align: left;\"><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\"><strong>If hired, the State Board for Educator Certification will require all first time applicants for an initial credential to be fingerprinted as part of a national criminal background check. A cost of up to $49.00 will be charged for fingerprinting.</strong></span></span></center> </center> </center>  <div style=\"text-align: left;\"> </div> </div> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\"><strong>PRIMARY PURPOSE:</strong><br> To provide special education students with learning activities and experiences designed to help them fulfill their potential for intellectual, emotional, physical, and social growth. Develop or modify curricula and prepare lessons and other instructional materials to student ability levels. Work in self-contained, team, departmental, or itinerant capacity as assigned. <strong>This position may be contingent upon funding in whole or in part through state or federal grants.<br> <br> MAJOR RESPONSIBILITIES AND DUTIES</strong></span></span> <ul><li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Collaborate with students, parents, and other members of staff to develop IEP through the ARD Committee process for each student assigned.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Implement an instructional, therapeutic, or skill development program for assigned students and show written evidence of preparation as required.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Plan and use appropriate instructional and learning strategies, activities, materials, and equipment that reflect understanding of the learning styles and needs of students assigned.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Work cooperatively with classroom teachers to modify regular curricula as needed and assist special education students in regular classes with assignments.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Participate in ARD Committee meetings on a regular basis.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Conduct assessment of student learning styles and use results to plan for instructional activities.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Present subject matter according to guidelines established by IEP. Consult with classroom teachers regarding management of student behavior according to IEP.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Employ a variety of instructional techniques and media to meet the needs and capabilities of each student assigned.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Use technology in teaching/learning process.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Conduct ongoing assessments of student achievement through formal and informal testing.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Provide or supervise personal care, medical care, and feeding of students as stated in IEP.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Assume responsibility for extracurricular activities as assigned. Sponsor outside activities approved by campus principal.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Be a positive role model for students; support mission of school district.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Create classroom environment conducive to learning and appropriate for the physical, social, and emotional development of students. Manage student behavior and administer discipline. This includes intervening in crisis situations and physically restraining students as necessary according to IEP.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Consult district and outside resource people regarding education, social, medical, and personal needs of students.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Take all necessary and reasonable precautions to protect students, equipment, materials, and facilities.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Assist in selection of books, equipment, and other instructional materials.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Establish and maintain open communication by conducting conferences with parents, students, principals, and teachers. Maintain a professional relationship with colleagues, students, parents, and community members.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Participate in staff development activities to improve job-related skills.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Keep informed of and comply with federal, state, district, and school regulations and policies for special education teachers.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Compile, maintain, and file all physical and computerized reports, records, and other documents required.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Attend and participate in faculty meetings and serve on staff committees as required.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Demonstrate regular and prompt attendance to ensure a consistent focus on student learning.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Perform other duties as assigned.</span></span></li> </ul> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">  <br> <em><strong>SUPERVISORY RESPONSIBILITIES</strong></em></span></span> <ul><li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Supervise assigned teacher aide(s) and volunteer(s), student teacher(s), intern(s), beginning teacher(s) as needed.</span></span></li> </ul> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">  <br> <strong>GENERAL QUALIFICATION GUIDELINES</strong><br> <strong>Education/Certification/Experience:</strong></span></span> <ul><li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Bachelor’s degree in education or related field.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Valid Texas teaching certificate appropriate to subject and grade level assigned. Bilingual certification required for bilingual positions.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Experience in student teaching, internship, fieldwork, observation and all other placements required by universities or state approved programs for certification.</span></span></li> </ul> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">  <br> <strong>Knowledge/Skills/Abilities:</strong></span></span> <ul><li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Knowledge of special needs of students in assigned area; Admission, Review, and Dismissal (ARD) Committee process and Individual; Education Plan (IEP) goal setting process and implementation; curriculum and instruction.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Ability to present information accurately and clearly; manage multiple priorities and projects; and instruct students and manage their behavior.</span></span></li> </ul> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">  <br> <strong>Mental/Physical/Environmental Demands</strong><br> <em>The essential functions, pursuant to the Americans with Disabilities Act, may include the characteristic duties, responsibilities, knowledge, skills, and abilities noted herein; however, this is not a comprehensive listing of all functions and tasks performed by positions found in this job description.</em></span></span> <ul><li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">May be exposed to outdoor weather conditions during portions of work day.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Needs to move about inside the classroom or campus to monitor students as necessary.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Maintain composure and professionalism at all times.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Frequent standing, stooping, bending, pulling and pushing.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Frequent moving of small stacks of textbooks, media equipment, desks, and other classroom equipment.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Occasional requires lifting up to 25 pounds.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Occasional prolonged and irregular hours.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Ability to understand complex problems and to collaborate and explore alternative solutions.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Ability to organize and prioritize work schedules of others on short-term basis.</span></span></li> <li><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">Ability to make decisions which have significant impact on the immediate work unit and monitor impact outside immediate work unit.</span></span></li> </ul> <span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\">  </span></span>  <div style=\"text-align: center;\"><span style=\"font-size:14px;\"><span style=\"font-family:tahoma,geneva,sans-serif;\"><b>Equal Opportunity Employer</b></span></span></div> </span>",
+      "OtherDescription": "",
+      "Attachment": "",
+      "CompanyName": "Leander Independent School District",
+      "LogoUrl": "",
+      "WebsiteUrl": "http://www.leanderisd.org",
+      "CompanyID": 5942,
+      "MetroID": 1
     }
   ]
 }
 ```
 
 ### Attributes Descriptions
-#### meta
+#### pagination
 Attribute | Description
 ------------- | -------------
 page | A cursor for use in pagination. Returns the n-th chunk of perPage objects.
 perPage | Number of jobs per response. Must be an integer between 1 and 500 (otherwise, it will default to 100). Defaults to 100.
 pageCount | Number of pages 
-uniqueCompaniesCount | Number of companies that are hiring
+uniqueDistrictsCount | Number of districts that are hiring
 totalNumberOfJobs | Number of unique job postings in the endpoint
-#### job
+#### data
 Attribute | Description
 ------------- | -------------
 JobID | Unique ID for each job
 JobTitle | Job title
-Location | Location (can include remote)
-Url | Link to the original job posting on the company's career page
+Location | Location as shown on the job posting. Typically states the school or building.
+District | School district name
+DistrictID | Unique ID for each school district
+City | City the school district's main building is located in
+ZipCode | Zip code the school district's main building is located in
+State | State the school district's main building is located in
+Url | Link to the original job posting
 DatePosted | Date and time in ISO 8601 format. The time zone is UTC.
 Description | Description of the job opening in HTML format
-CompanyName | Company name
-Logo | URL to the company's logo image generated by CDN
-Website | Link to the company's website
+AlternateDescription | Description of the job opening in HTML format. 
+Attachment | Link to view or download a file attachment to the job. Typically contains the job description and/or application form. 
+WebsiteUrl | Link to the school district's website
 
