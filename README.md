@@ -18,7 +18,7 @@ radius | Sets the radius of the circle around coordinates. Default is 25 miles. 
 ## GET: List Jobs
 ### HTTP Request
 
-```GET https://careervault.io/api/240tutoring```
+```GET https://240tutoring.careervault.io/api```
 
 ### JSON Response
 ```
@@ -77,7 +77,7 @@ State | State the school district's main building is located in
 Url | Link to the original job posting
 DatePosted | Date and time in ISO 8601 format. The time zone is UTC.
 Description | Description of the job opening in HTML format
-AlternateDescription | Description of the job opening in HTML format. 
+OtherDescription | Description of the job opening in HTML format. 
 Attachment | Link to view or download a file attachment to the job. Typically contains the job description and/or application form. 
 WebsiteUrl | Link to the school district's website
 
