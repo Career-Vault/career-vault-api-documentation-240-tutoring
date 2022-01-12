@@ -18,7 +18,7 @@ radius | Sets the radius of the circle around coordinates. Default is 25 miles. 
 ## GET: List Jobs
 ### HTTP Request
 
-```GET https://240tutoring.careervault.io/api```
+```GET https://api.careervault.io/240tutoring/v1/jobs```
 
 ### JSON Response
 ```
