@@ -11,8 +11,7 @@ zipCode | Returns jobs where the ZipCode matches.
 city | Returns jobs where the City matches.
 district | Returns jobs where District matches.
 state | Returns jobs where State matches.
-coordinates | Sets the center of a circular area where jobs are shown from.
-radius | Sets the radius of the circle around coordinates. Default is 25 miles. `coordinates` must not be null.
+distance | Sets the distance from the bordering circle around a city. Default is 5 (miles). 
 
 
 ## GET: List Jobs
